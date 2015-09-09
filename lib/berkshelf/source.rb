@@ -16,7 +16,7 @@ module Berkshelf
       @api_client ||= begin
                         if source == :chef_server
                           APIClient.chef_server(
-                            ssl: {verify: Berkshelf::Config.instance.ssl.verify},
+                            ssl: Berkshelf::Config.instance.ssl,
                             client_name: Berkshelf::Config.instance.chef.node_name,
                             server_url: Berkshelf::Config.instance.chef.chef_server_url,
                             client_key: Berkshelf::Config.instance.chef.client_key,
